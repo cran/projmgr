@@ -1,0 +1,38 @@
+{
+    "milestone1":{
+        "title":"Data cleaning and validation",
+        "description":"We will conduct data quality checks, resolve issues with the data quality, and document this process",
+        "due_on":"2018-12-31Z12:59:59Z",
+        "issue":[
+            {
+                "title":"Define data quality standards",
+                "body":"List out decision rules to check data quality",
+                "assignees":["emilyriederer"],
+                "labels":["a","b","c"]
+            },
+            {
+                "title":"Assess data quality",
+                "body":"Use assertthat to test decision rules on dataset",
+                "labels":["low"]
+            },
+            {
+                "title":"Resolve data quality issues",
+                "body":"Conduct needed research to resole any issues"
+            }
+        ]
+    },
+    "milestone2":{
+        "title":"Exploratory data analysis",
+        "description":"Produce basic views and summary statistics to understand dataset and relationships",
+        "issue":[
+            {
+                "title":"Summary statistics",
+                "body":"Calculate summary statistics"
+            },
+            {
+                "title":"Visualizations",
+                "body":"Create univariate and bivariate plots"
+            }
+        ]
+    }
+}

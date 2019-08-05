@@ -1,0 +1,8 @@
+- title: Consider renaming my_very_long_function_name
+  body: >
+    This name is unneccesarily long and hence
+     it is very hard and annoying to type
+  assignees: [emilyriederer]
+  labels: [low]
+
+- title: Make sure documentation links right pages of API docs

@@ -1,0 +1,7 @@
+- title: Informative title
+  body: >
+    Longer description of issue
+  assignees: [emilyriederer]
+  labels: [low]
+
+- title: Another informative title - body not required!
