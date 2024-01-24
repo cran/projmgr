@@ -1,10 +1,10 @@
 #' Get issues from GitHub repository
 #'
-#' A single issue can be obtained by identification number of \code{number} is passed through \code{...}s.
+#' A single issue can be obtained by identification number of `number` is passed through `...`s.
 #' In this case, all other query parameters will be ignored.
 #'
 #' @inherit get_engine return params
-#' @param limit Number of records to return, passed directly to \code{gh} documentation. Defaults to
+#' @param limit Number of records to return, passed directly to `gh` documentation. Defaults to
 #'     1000 and provides message if number of records returned equals the limit
 #'
 #' @export
@@ -55,7 +55,13 @@ get_issues <- function(ref, limit = 1000, ...){
 #' to which the returned events correspond.
 #'
 #' @inherit get_engine return params
+#'
+#' @inheritParams get_issues
+#' @param dummy_events Logical for whether or not to create a 'dummy' event to denote the
+#'     existence of issues which have no events. Defaults to TRUE (to allow creation). Default
+#'     behavior makes the process of mapping over multiple issues simpler.
 #' @param number Number of issue
+#'
 #' @export
 #'
 #' @family issues
@@ -64,22 +70,36 @@ get_issues <- function(ref, limit = 1000, ...){
 #' @examples
 #' \dontrun{
 #' myrepo <- create_repo_ref('emilyriederer', 'myrepo')
+#'
+#' # single issue workflow
 #' events_res <- get_issue_events(myrepo, number = 1)
 #' events <- parse_issue_events(events_res)
+#'
+#' # multi-issue workflow
+#' issue_res <- get_issues(my_repo, state = 'open')
+#' issues <- parse_issues(issues_res)
+#' events <- purrr::map_df(issues$number, ~get_issue_events(myrepo, .x) %>% parse_issue_events())
 #' }
 
-get_issue_events <- function(ref, number){
+get_issue_events <- function(ref, number, dummy_events = TRUE){
 
   res <- get_engine(api_endpoint = paste0("/issues/", number, "/events"),
                     ref = ref)
 
   # append the relevant issue number to each element
-  if( res != "" ){
+  if (res != "") {
     res <- lapply(res,
                   FUN = function(x){
                     x[["number"]] = number
                     return(x)
                   })
+  }
+  else if(dummy_events) {# when there were no results, create mock result for easy mapping
+    res <- list(list(
+        id = -9999,
+        number = number,
+        event = "exists"
+    ))
   }
   res
 
@@ -125,7 +145,7 @@ get_issue_comments <- function(ref, number, ...){
 
 #' Get milestones from GitHub repository
 #'
-#' A single milestone can be obtained by identification number of \code{number} is passed through \code{...}s.
+#' A single milestone can be obtained by identification number of `number` is passed through `...`s.
 #' In this case, all other query parameters will be ignored.
 #'
 #' @inherit get_engine return params

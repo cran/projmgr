@@ -1,6 +1,6 @@
 Package: projmgr
 Title: Task Tracking and Project Management with GitHub
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: 
     person(given = "Emily",
            family = "Riederer",
@@ -22,11 +22,10 @@ Suggests: clipr, curl, dplyr, ggplot2, knitr, purrr, reprex, rmarkdown,
         testthat, tidyr, yaml, htmltools, httr, covr
 Encoding: UTF-8
 Language: en-US
-LazyData: true
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.2
 NeedsCompilation: no
-Packaged: 2019-07-20 19:12:56 UTC; emily
+Packaged: 2024-01-24 03:20:38 UTC; emily
 Author: Emily Riederer [cre, aut]
 Maintainer: Emily Riederer <emilyriederer@gmail.com>
 Repository: CRAN
-Date/Publication: 2019-08-05 15:40:06 UTC
+Date/Publication: 2024-01-24 05:10:02 UTC

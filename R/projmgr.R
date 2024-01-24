@@ -1,12 +1,13 @@
-#' \code{projmgr} package
+#' `projmgr` package
 #'
 #' A quick and easy wrapper for working with GitHub and other project management tools
 #'
 #' See the README on
-#' \href{https://github.com/emilyriederer/projmgr}{GitHub}
+#' [GitHub](https://github.com/emilyriederer/projmgr)
 #'
 #' @docType package
 #' @name projmgr
+#' @keywords internal
 NULL
 
 globalVars <- c(

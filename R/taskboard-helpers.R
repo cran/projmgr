@@ -1,8 +1,8 @@
 #' Tag "in-progress" items for taskboard visualization
 #'
-#' The \code{viz_taskboard()} function creates a three-column layout of entities that are
+#' The `viz_taskboard()` function creates a three-column layout of entities that are
 #' not started, in progress, or done. Objects are classified as done when they have a
-#' \code{state} of "closed". Object are classified as "To-Do" when they are neither "Closed"
+#' `state` of "closed". Object are classified as "To-Do" when they are neither "Closed"
 #' or "In Progress". However, what constistutes "In Progress" is user and project dependent.
 #' Thus, these functions let users specify what they mean.
 #'
@@ -31,7 +31,7 @@
 #' }
 #'
 #'
-#' @return Function to be passed as \code{in_progress_when} argument in \code{viz_taskboard()}
+#' @return Function to be passed as `in_progress_when` argument in `viz_taskboard()`
 #' @name taskboard_helpers
 #'
 #' @examples
@@ -160,9 +160,9 @@ has_n_commits <- function(events, n = 1) {
   n_commits <-
     vapply(data$number,
            FUN = function(x) {
-             z <- which(x == ref_counts$event)
+             z <- which(x == ref_counts$number)
              if (length(z) == 0) 0
-             else z
+             else ref_counts$event[z]
              },
            numeric(1))
   n_commits >= n

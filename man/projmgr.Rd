@@ -3,7 +3,6 @@
 \docType{package}
 \name{projmgr}
 \alias{projmgr}
-\alias{projmgr-package}
 \title{\code{projmgr} package}
 \description{
 A quick and easy wrapper for working with GitHub and other project management tools
@@ -12,3 +11,4 @@ A quick and easy wrapper for working with GitHub and other project management to
 See the README on
 \href{https://github.com/emilyriederer/projmgr}{GitHub}
 }
+\keyword{internal}
